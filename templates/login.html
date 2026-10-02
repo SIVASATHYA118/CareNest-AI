@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in | CareNest AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="login">
+  <section class="hero">
+    <h1>CareNest AI</h1>
+    <p><b>Smart Home Hospital Monitoring &amp; Early Risk Detection System</b></p>
+    <p>A virtual hospital ward for safer home healthcare. An AI-assisted early risk detection and caregiver decision-support system.</p>
+    <div class="flow"><span>Sense</span><span>Understand</span><span>Predict</span><span>Alert</span><span>Respond</span></div>
+  </section>
+  <section class="form">
+    <form id="loginForm" novalidate>
+      <h2 style="font-size:1.4rem">Sign in to the ward</h2>
+      <label for="u">Username</label><input id="u" autocomplete="username" style="width:100%" autofocus>
+      <label for="p">Password</label><input id="p" type="password" autocomplete="current-password" style="width:100%">
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn" style="width:100%" type="submit">Sign in</button>
+      <div class="hint">Demo credentials<br><b>admin</b> / <b>admin123</b></div>
+      <p class="small muted">This prototype uses simulated patient data and is intended for demonstration and educational purposes. Not a medical device.</p>
+    </form>
+  </section>
+</div>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const err = document.getElementById('err'); err.textContent = '';
+  try {
+    const r = await fetch('/api/login', {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({username: u.value, password: p.value})});
+    const d = await r.json().catch(() => ({}));
+    if (r.ok) location.href = d.redirect || '/dashboard'; else err.textContent = d.error || 'Sign in failed.';
+  } catch (x) { err.textContent = 'Cannot reach the server. Is app.py running?'; }
+});
+</script>
+</body></html>

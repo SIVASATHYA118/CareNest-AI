@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block heading %}Ward dashboard{% endblock %}
+{% block content %}
+<div id="pipeline" class="pipeline" aria-label="Data flow status"></div>
+<div class="grid2">
+  <section class="card risk" id="riskPanel"><div class="empty">Waiting for the first reading…</div></section>
+  <section class="card" id="patientCard"></section>
+</div>
+<div id="vitalCards" class="vitals"></div>
+<div class="grid2">
+  <section class="card" id="equipCard" aria-label="Medical equipment status"></section>
+  <section class="card" id="attendCard" aria-label="Caregiver attendance"></section>
+</div>
+<section class="monitor">
+  <header><h2>Bedside monitor</h2><span class="live" id="liveTag">● LIVE</span></header>
+  <div class="grid2e">
+    <div class="chartbox"><canvas id="cHR" aria-label="Heart rate trace"></canvas></div>
+    <div class="chartbox"><canvas id="cSPO2" aria-label="SpO2 trace"></canvas></div>
+  </div>
+</section>
+<div class="grid2">
+  <section class="card"><header><h2>Active alerts</h2><a href="/alerts" class="small">All alerts</a></header><div id="alertsOpen"></div></section>
+  <div style="display:grid;gap:18px;align-content:start">
+    <section class="card"><header><h2>Latest caregiver notes</h2><a href="/caregiver" class="small">Add note</a></header><div id="notesRecent" class="notes"></div></section>
+    <section class="card"><header><h2>System events</h2></header><div id="eventsList" class="small"></div></section>
+  </div>
+</div>
+{% endblock %}

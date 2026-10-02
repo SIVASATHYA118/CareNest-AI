@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Live vitals{% endblock %}
+{% block heading %}Live vitals{% endblock %}
+{% block content %}
+<section class="card">
+  <header><h2>Sensor simulator</h2><span id="simMode" class="chip info">Mode: NORMAL</span></header>
+  <p class="muted small" style="margin-top:0">Vitals drift gradually toward the selected mode instead of jumping randomly. Readings are generated in the browser (the simulated bedside device) and sent to the Flask backend every 2 seconds.</p>
+  <div class="actions" style="margin:0">
+    <button class="btn" data-demo="NORMAL">Normal Condition</button>
+    <button class="btn warn" data-demo="WARNING">Trigger Warning</button>
+    <button class="btn danger" data-demo="CRITICAL">Trigger Critical</button>
+    <button class="btn ghost" data-demo="reset">Reset Simulation</button>
+  </div>
+</section>
+<div id="vitalCards" class="vitals"></div>
+<div class="grid2e">
+  <section class="card"><header><h2>Heart rate</h2><span class="muted small">bpm</span></header><div class="chartbox"><canvas id="cHR"></canvas></div></section>
+  <section class="card"><header><h2>SpO₂</h2><span class="muted small">%</span></header><div class="chartbox"><canvas id="cSPO2"></canvas></div></section>
+  <section class="card"><header><h2>Temperature</h2><span class="muted small">°C</span></header><div class="chartbox"><canvas id="cTEMP"></canvas></div></section>
+  <section class="card"><header><h2>Respiratory rate</h2><span class="muted small">breaths/min</span></header><div class="chartbox"><canvas id="cRR"></canvas></div></section>
+</div>
+<section class="card risk" id="riskPanel"></section>
+{% endblock %}

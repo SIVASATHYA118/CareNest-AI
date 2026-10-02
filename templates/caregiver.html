@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Caregiver notes{% endblock %}
+{% block heading %}Caregiver notes{% endblock %}
+{% block content %}
+<div class="grid2e">
+  <section class="card">
+    <header><h2>Add a note</h2></header>
+    <p class="muted small" style="margin-top:0">Notes in English or Tamil are used as context by the risk engine. Concerning symptoms (for example breathing difficulty) can raise the risk level when vitals are also abnormal.</p>
+    <label for="noteLang">Language</label>
+    <select id="noteLang"><option value="en">English</option><option value="ta">தமிழ் (Tamil)</option></select>
+    <label for="preset">Quick phrases</label>
+    <select id="preset" style="width:100%"><option value="">Choose a phrase…</option></select>
+    <label for="noteText">Note</label>
+    <textarea id="noteText" maxlength="1000" placeholder="e.g. Patient is feeling weak and has difficulty breathing."></textarea>
+    <div class="actions"><button class="btn" id="saveNote">Save note</button></div>
+  </section>
+  <section class="card"><header><h2>Notes</h2></header><div id="notesAll" class="notes"></div></section>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Alerts{% endblock %}
+{% block heading %}Alerts{% endblock %}
+{% block content %}
+<section class="card">
+  <header><h2>Alert queue</h2>
+    <div class="seg" id="alertFilter"><button data-f="open" class="on">Open</button><button data-f="all">All</button></div>
+  </header>
+  <div id="alertsAll"></div>
+</section>
+{% endblock %}

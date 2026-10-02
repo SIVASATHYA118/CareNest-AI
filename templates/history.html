@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock %}
+{% block heading %}Patient history{% endblock %}
+{% block content %}
+<section class="card">
+  <header><h2>Vital trends</h2>
+    <div class="seg" id="range" role="group" aria-label="Time range">
+      <button data-h="1" class="on">Last 1 hour</button><button data-h="6">Last 6 hours</button><button data-h="24">Last 24 hours</button>
+    </div>
+  </header>
+  <div class="grid2e">
+    <div><h3>Heart rate (bpm)</h3><div class="chartbox tall"><canvas id="hHR"></canvas></div></div>
+    <div><h3>SpO₂ (%)</h3><div class="chartbox tall"><canvas id="hSPO2"></canvas></div></div>
+    <div><h3>Temperature (°C)</h3><div class="chartbox tall"><canvas id="hTEMP"></canvas></div></div>
+    <div><h3>Respiratory rate (breaths/min)</h3><div class="chartbox tall"><canvas id="hRR"></canvas></div></div>
+  </div>
+  <p class="small muted" id="histInfo"></p>
+</section>
+<section class="card">
+  <header><h2>Recent readings with AI explanation</h2><span class="muted small">Most recent 60</span></header>
+  <div class="tablewrap" style="max-height:480px;overflow:auto">
+    <table><thead><tr><th>Time</th><th>HR</th><th>SpO₂</th><th>Temp</th><th>RR</th><th>BP</th><th>Risk</th><th>Explanation</th></tr></thead><tbody id="histRows"></tbody></table>
+  </div>
+</section>
+{% endblock %}

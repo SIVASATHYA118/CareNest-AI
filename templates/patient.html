@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Patient{% endblock %}
+{% block heading %}Patient{% endblock %}
+{% block content %}
+<div class="grid2e">
+  <section class="card" id="patientCard"></section>
+  <section class="card">
+    <header><h2>Monitoring ranges (prototype safety logic)</h2></header>
+    <div class="tablewrap"><table id="rangeTable"><thead><tr><th>Vital</th><th>Normal range</th></tr></thead><tbody></tbody></table></div>
+    <p class="small muted">Thresholds are demonstration values, not clinical criteria.</p>
+  </section>
+</div>
+<section class="card risk" id="riskPanel"></section>
+<section class="card">
+  <header><h2>Home ward setup</h2></header>
+  <dl class="kv">
+    <dt>Location</dt><dd>Bedroom, simulated home ward</dd>
+    <dt>Sensors</dt><dd>Heart rate, SpO₂, temperature, respiratory rate, blood pressure (all simulated)</dd>
+    <dt>Primary caregiver</dt><dd>Meena (demo account)</dd>
+    <dt>Data</dt><dd>Simulated only. No real patient records are used.</dd>
+  </dl>
+</section>
+{% endblock %}

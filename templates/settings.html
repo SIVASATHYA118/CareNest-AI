@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block heading %}Settings{% endblock %}
+{% block content %}
+<div class="grid2e">
+  <section class="card">
+    <header><h2>Simulation</h2></header>
+    <label for="speed">Sensor update interval</label>
+    <select id="speed"><option value="1000">1 second</option><option value="2000" selected>2 seconds</option><option value="5000">5 seconds</option></select>
+    <label><input type="checkbox" id="auto" style="width:auto"> Occasionally introduce a short warning episode on its own</label>
+    <div class="actions"><button class="btn ghost" data-demo="reset">Reset simulation data</button></div>
+    <p class="small muted">Reset clears readings, alerts and notes and re-creates 24 hours of synthetic history.</p>
+  </section>
+  <section class="card"><header><h2>AI model</h2></header><div id="modelInfo" class="small"></div></section>
+</div>
+<section class="card">
+  <header><h2>Safety rule thresholds</h2><span class="chip warn">Prototype safety logic</span></header>
+  <div class="tablewrap"><table id="rangeTable"><thead><tr><th>Vital</th><th>Normal range</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section class="card"><header><h2>System event log</h2></header><div id="eventsList" class="small"></div></section>
+<section class="card"><header><h2>Privacy and safety</h2></header>
+  <p class="small">Access requires a signed-in account and patient data is not exposed publicly. This prototype uses simulated patient data and is intended for demonstration and educational purposes. CareNest AI is an AI-assisted early risk detection and caregiver decision-support system; it does not diagnose, and does not replace doctors, nurses or emergency services.</p>
+  <p class="small"><b>Privacy by design:</b> the system collects only vital signs, equipment status, caregiver notes and check-in times. There is no camera, microphone or location tracking, no third-party analytics, and all data stays in the local SQLite database. Caregiver attendance uses a simulated bedside tap, not tracking of the caregiver.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,6 @@
+@echo off
+REM One-click start for Windows
+if not exist venv ( python -m venv venv )
+call venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
